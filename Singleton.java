@@ -4,7 +4,10 @@ public class Singleton {
 
     // TODO 1 : fix singleton bad implementation
     public static Singleton getInstance() {
-        return new Singleton();
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
     }
 
     private Bank bank;
@@ -19,6 +22,10 @@ public class Singleton {
 
     public void withdraw(int value) {
         bank.setTotal(bank.getTotal() - value);
+    }
+
+    public int getTotal() {
+        return bank.getTotal();
     }
 
     public Bank getBank() {
